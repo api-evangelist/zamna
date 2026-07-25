@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Zamna Ready To Fly Session Start With Booking Id And Surname API
+  version: '2.18'
+tags:
+- name: Start With Booking Id And Surname
+paths:
+  /start-with-booking-id-and-surname:
+    post:
+      summary: Initiate MultiPax session with booking id and surname
+      parameters:
+      - name: X-Request-Id
+        in: header
+        description: Request id to be returned in response header (auto generated if not specified)
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartWithBookingIdAndSurnameRequest'
+        required: true
+      responses:
+        '200':
+          description: MultiPax session id and token to authorize further requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StartWithBookingIdAndSurnameResponse'
+      tags:
+      - Start With Booking Id And Surname
+components:
+  schemas:
+    GeneralError:
+      type: object
+      properties:
+        code:
+          $ref: '#/components/schemas/GeneralErrorCode'
+        message:
+          type:
+          - string
+          - 'null'
+        details:
+          additionalProperties:
+            type: string
+          type:
+          - object
+          - 'null'
+      required:
+      - code
+    StartWithBookingIdAndSurnameResponseData:
+      type: object
+      description: Response for /start-with-booking-id-and-surname endpoint
+      properties:
+        session_id:
+          type: string
+          description: MultiPax session id
+          example: aae10767-d13b-4e5c-a9fe-0ab8f13b8087
+        pax_check_token:
+          type: string
+          description: Session token to authenticate to other API endpoints
+        return_url:
+          description: URL to where navigate passenger to
+          type:
+          - string
+          - 'null'
+      required:
+      - session_id
+      - pax_check_token
+    ErrorContainer:
+      type: object
+      properties:
+        general_error:
+          anyOf:
+          - $ref: '#/components/schemas/GeneralError'
+          - type: 'null'
+    GeneralErrorCode:
+      type: string
+      enum:
+      - NOT_FOUND
+      - BAD_REQUEST
+      - BOOKING_CURRENTLY_NOT_PROCESSABLE
+      - BOOKING_NOT_PROCESSABLE
+      - SESSION_IS_LOCKED
+      - SESSION_FINALISED
+    StartWithBookingIdAndSurnameRequest:
+      type: object
+      description: Request to login with booking identifier and surname, relies on ReCaptcha to prevent robots from using the service
+      properties:
+        booking_id:
+          type: string
+          description: Booking id
+          example: BC45AS
+        surname:
+          type: string
+          description: Passenger surname
+          example: SMITH
+        recaptcha_response:
+          type: string
+          description: ReCaptcha response
+      required:
+      - booking_id
+      - surname
+      - recaptcha_response
+    StartWithBookingIdAndSurnameResponse:
+      type: object
+      description: Response to login with booking identifier and surname
+      properties:
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/StartWithBookingIdAndSurnameResponseData'
+          - type: 'null'
+        error:
+          anyOf:
+          - $ref: '#/components/schemas/ErrorContainer'
+          - type: 'null'
+  securitySchemes:
+    BearerAuth:
+      scheme: bearer
+      type: http

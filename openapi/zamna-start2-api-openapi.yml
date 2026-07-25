@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Zamna Ready To Fly Session Start2 API
+  version: '2.18'
+tags:
+- name: Start2
+paths:
+  /start2:
+    get:
+      summary: For in-browser redirect — initiate MultiPax session with encrypted booking id, redirect browser to URL with session token to authorize further requests
+      parameters:
+      - name: X-Request-Id
+        in: header
+        description: Request id to be returned in response header (auto generated if not specified)
+        schema:
+          type: string
+      - name: encrypted_booking_id
+        in: query
+        description: Base64-encoded encrypted booking id
+        required: true
+        schema:
+          type: string
+      - name: redirect_url
+        in: query
+        description: URL to redirect to with auth token as query param
+        required: true
+        schema:
+          type: string
+      - name: return_url
+        in: query
+        description: URL to return after passengers are Ready To Fly, or in case of errors
+        schema:
+          type: string
+      - name: pax_ids
+        in: query
+        description: comma-separated list of pax ids to load from booking (if not specified, all pax will be loaded)
+        schema:
+          type: string
+      - name: consented
+        in: query
+        description: Whether consent should be set for session, true/false
+        schema:
+          type: string
+      - name: locale
+        in: query
+        description: Locale to redirect with (locale parameter is added to redirect_url)
+        schema:
+          type: string
+      - name: language
+        in: query
+        description: Alias for 'locale'. Locale to redirect with (locale parameter is added to redirect_url)
+        schema:
+          type: string
+      - name: mode
+        in: query
+        description: Mode to pass through to webview (mode parameter is added to redirect_url)
+        schema:
+          type: string
+      - name: departure_station
+        in: query
+        description: Departure station to select journey by (if not specified, first in future journey will be selected)
+        schema:
+          type: string
+      - name: departureCity
+        in: query
+        description: Alias for departure_station. Departure station to select journey by (if not specified, first in future journey will be selected)
+        schema:
+          type: string
+      - name: encryption_mode
+        in: query
+        description: Encryption mode to use for booking id decryption. If omitted used the only one configured, or else AES_CBC if multiple modes are configured.
+        schema:
+          type: string
+        example: AES_CBC
+      responses:
+        '302':
+          description: Location of the redirect contains redirect_url with added session token
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      tags:
+      - Start2
+components:
+  securitySchemes:
+    BearerAuth:
+      scheme: bearer
+      type: http

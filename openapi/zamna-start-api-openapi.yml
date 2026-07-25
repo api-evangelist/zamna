@@ -1,0 +1,1053 @@
+openapi: 3.1.0
+info:
+  title: Zamna Ready To Fly Session Start API
+  version: '2.18'
+tags:
+- name: Start
+paths:
+  /start:
+    get:
+      summary: Initiate MultiPax session with encrypted booking id, get session token to authorize further requests
+      parameters:
+      - name: X-Request-Id
+        in: header
+        description: Request id to be returned in response header (auto generated if not specified)
+        schema:
+          type: string
+      - name: encrypted_booking_id
+        in: query
+        description: Base64-encoded encrypted booking id
+        required: true
+        schema:
+          type: string
+      - name: consented
+        in: query
+        description: Whether consent should be set for session, true/false
+        schema:
+          type: string
+      - name: pax_ids
+        in: query
+        description: Comma-separated list of pax ids to load from booking (if not specified, all pax will be loaded)
+        schema:
+          type: string
+      - name: encryption_mode
+        in: query
+        description: Encryption mode to use for booking id decryption. If omitted used the only one configured, or else AES_CBC if multiple modes are configured.
+        schema:
+          type: string
+        example: AES_CBC
+      responses:
+        '200':
+          description: MultiPax session id and token to authorize further requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Start1Response'
+      tags:
+      - Start
+components:
+  schemas:
+    DocumentProvisionMethod:
+      type: string
+      enum:
+      - MANUAL
+      - SCAN
+      - UPLOAD
+    Question:
+      oneOf:
+      - $ref: '#/components/schemas/DeclarationItem'
+      - $ref: '#/components/schemas/HaveDocumentQuestion'
+      - $ref: '#/components/schemas/PickFromListQuestion'
+      discriminator:
+        propertyName: type
+        mapping:
+          declaration-item: '#/components/schemas/DeclarationItem'
+          have-document-question: '#/components/schemas/HaveDocumentQuestion'
+          pick-from-list-question: '#/components/schemas/PickFromListQuestion'
+    Start1Response:
+      type: object
+      properties:
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/Start1ResponseData'
+          - type: 'null'
+        error:
+          anyOf:
+          - $ref: '#/components/schemas/ErrorContainer'
+          - type: 'null'
+    Operator:
+      type: string
+      enum:
+      - GTE
+      - LTE
+      - GT
+      - LT
+      - EQ
+      - NEQ
+      - CONTAINS
+    FieldNotIn:
+      type: object
+      description: 'Checklist item requirement: field value NOT IN list ({field} not in [{values}], eg docSubType not in [B1,B2,B1/B2])'
+      properties:
+        as_text:
+          type: string
+          description: Requirement represented as text
+          example: docCountry not in (GBR, USA)
+        field:
+          type: string
+          description: Field
+          example: docCountry
+        values:
+          type: array
+          items:
+            type: string
+          description: Not allowed values
+          example: '["GBR", "USA"]'
+        type:
+          type: string
+      required:
+      - as_text
+      - field
+      - values
+      - type
+    RuleOrigin:
+      type: object
+      description: Origin of the rule
+      properties:
+        type:
+          $ref: '#/components/schemas/RuleType'
+          description: Type (ENTRY/TRANSIT/EXIT)
+          example: ENTRY
+        country:
+          type: string
+          description: Rule origin country
+          example: MEX
+      required:
+      - type
+      - country
+    ChecklistItemType:
+      type: object
+      description: Checklist item type, eg RESIDENCE_PERMIT/USA which represents USA Green Card
+      properties:
+        item_type:
+          type: string
+          description: Checklist item type
+          example: RESIDENCE_PERMIT
+        item_territory:
+          description: Item type territory, might be null
+          example: USA
+          type:
+          - string
+          - 'null'
+      required:
+      - item_type
+    Journey:
+      type: object
+      description: Journey record (departure, transit, arrival) - API output
+      properties:
+        flight_numbers:
+          items:
+            type: string
+          description: Departure flight numbers
+          type:
+          - array
+          - 'null'
+        departure:
+          $ref: '#/components/schemas/DeparturePoint'
+          description: Departure point
+        transit:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransitPoint'
+          description: List of transit points
+        arrival:
+          $ref: '#/components/schemas/ArrivalPoint'
+          description: Arrival point
+      required:
+      - departure
+      - transit
+      - arrival
+    ChecklistStatus:
+      type: string
+      enum:
+      - ON_HOLD
+      - ACTIVE
+      - FINALIZED
+    FieldIn:
+      type: object
+      description: 'Checklist item requirement: field value IN list ({field} in [{values}], eg docSubType in [DIPLOMATIC,SERVICE])'
+      properties:
+        as_text:
+          type: string
+          description: Requirement represented as text
+          example: docSubType in (DIPLOMATIC, SERVICE)
+        field:
+          type: string
+          description: Field
+          example: docSubType
+        values:
+          type: array
+          items:
+            type: string
+          description: Allowed values
+          example: '["DIPLOMATIC", "SERVICE"]'
+        type:
+          type: string
+      required:
+      - as_text
+      - field
+      - values
+      - type
+    AllowedDocument:
+      type: object
+      description: Describes a document which can be used to resolve checklist item
+      properties:
+        type:
+          type: string
+          description: Type of document
+          example: USA_GREEN_CARD
+        document_format:
+          $ref: '#/components/schemas/AllowedDocumentFormat'
+          description: Document format - to represent in UI
+          example: BOOKLET
+        title:
+          type: string
+          description: Title (localised)
+          example: US Green Card
+        description:
+          description: Description (localised)
+          example: Verification of your US Green Card is required to travel
+          type:
+          - string
+          - 'null'
+        provision_methods:
+          type: array
+          items:
+            $ref: '#/components/schemas/DocumentProvisionMethod'
+          description: Allowed provision methods (MANUAL, SCAN, UPLOAD)
+        sides_configuration:
+          $ref: '#/components/schemas/DocumentSidesConfiguration'
+          description: Whether document has one or multiple sides (or files, ie PDF)
+        sides_expectation:
+          $ref: '#/components/schemas/DocumentSidesExpectation'
+          description: Whether one or multiple sides (or files, ie PDF) are requested from passenger
+        side_with_mrz:
+          $ref: '#/components/schemas/DocumentMrzConfiguration'
+          description: MRZ configuration
+        multipax_resolution_supported:
+          type: boolean
+          description: If true, document of this type can be applied to multiple pax sessions with a single apply (ie using multipax-apply-document/file)
+          example: 'true'
+        sample_image_src:
+          description: Sample image URL (optional)
+          example: https://zamna-webview.s3.eu-west-1.amazonaws.com/samples/col-id-card.png
+          type:
+          - string
+          - 'null'
+        country:
+          description: Document country code (iso alpha-3) - can be EURO
+          example: USA
+          type:
+          - string
+          - 'null'
+        expect_long_processing:
+          type: boolean
+          description: Whether to expect long processing on the backend - allows to show user a warning
+        page_index_to_process:
+          format: int32
+          description: Which page of the document is relevant - pass to /apply
+          type:
+          - integer
+          - 'null'
+      required:
+      - type
+      - document_format
+      - title
+      - provision_methods
+      - sides_configuration
+      - sides_expectation
+      - side_with_mrz
+      - multipax_resolution_supported
+      - expect_long_processing
+    PickFromListQuestion:
+      type: object
+      description: A question with options to choose from, requires single answer (option id)
+      properties:
+        id:
+          type: string
+          description: Question id
+          example: PassportTypeInQuestion
+        is_relevant:
+          type: boolean
+          description: Whether question is relevant for this passenger, according to current answers to all questions
+        answer:
+          description: Question answer (Option id), if was provided
+          example: 'null'
+          type:
+          - string
+          - 'null'
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
+          description: Options to choose from
+        question_title:
+          $ref: '#/components/schemas/QuestionTitle'
+          description: Question title (localised)
+        sample_image:
+          description: Question sample image with a title
+          anyOf:
+          - $ref: '#/components/schemas/QuestionSampleImage'
+          - type: 'null'
+        default_value:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+      required:
+      - id
+      - is_relevant
+      - options
+      - question_title
+      - type
+    ComposedAnd:
+      type: object
+      description: 'Composed checklist item requirement: And([ChecklistItemRequirement])'
+      properties:
+        as_text:
+          type: string
+          description: Requirement represented as text
+          example: expiryDate >= 2025-05-27 and docCountry = CAN
+        requirements:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChecklistItemRequirement'
+          description: Embedded requirements as a list (... and ... and ...)
+        type:
+          type: string
+      required:
+      - as_text
+      - requirements
+      - type
+    RuleType:
+      type: string
+      enum:
+      - ENTRY
+      - TRANSIT
+      - EXIT
+    DocumentRequirement:
+      type: object
+      description: Document requirement with status and acceptable documents (and methods) to resolve it
+      properties:
+        id:
+          type: string
+          description: Checklist item id
+          example: QFJHy3K9eSufEkA7auLeZQ==
+        title:
+          type: string
+          description: Title (localised)
+          example: US Green Card
+        short_title:
+          description: Short document title (localised)
+          example: visa
+          type:
+          - string
+          - 'null'
+        description:
+          description: Description (localised)
+          example: What is ESTA?...
+          type:
+          - string
+          - 'null'
+        short_description:
+          description: Short description (localised)
+          example: You need to pay the Non-Resident Fee (DNR)
+          type:
+          - string
+          - 'null'
+        requirements:
+          items:
+            $ref: '#/components/schemas/ChecklistItemRequirement'
+          description: Any relevant requirements to present to passenger (eg hours to the onward flight for TICKET checklist item type)
+          type:
+          - array
+          - 'null'
+        external_link:
+          description: External link for more info
+          example: https://ceac.state.gov/genniv/
+          type:
+          - string
+          - 'null'
+        rule_origin:
+          $ref: '#/components/schemas/RuleOrigin'
+          description: Rule origin
+        allowed_documents_set:
+          description: A set of documents with which this checklist item can be resolved
+          anyOf:
+          - $ref: '#/components/schemas/AllowedDocumentsSet'
+          - type: 'null'
+        status:
+          $ref: '#/components/schemas/ChecklistItemStatus'
+          description: Checklist item status
+          example: RESOLVED
+        item_type:
+          $ref: '#/components/schemas/ChecklistItemType'
+          description: Checklist item type
+        is_travel_document:
+          type: boolean
+          description: Whether item is Travel Document requirement
+          example: 'true'
+        type:
+          type: string
+      required:
+      - id
+      - title
+      - rule_origin
+      - status
+      - item_type
+      - is_travel_document
+      - type
+    ChecklistItem:
+      oneOf:
+      - $ref: '#/components/schemas/DocumentRequirement'
+      - $ref: '#/components/schemas/InfoItem'
+      discriminator:
+        propertyName: type
+        mapping:
+          document-requirement: '#/components/schemas/DocumentRequirement'
+          info-item: '#/components/schemas/InfoItem'
+    GeneralErrorCode:
+      type: string
+      enum:
+      - NOT_FOUND
+      - BAD_REQUEST
+      - BOOKING_CURRENTLY_NOT_PROCESSABLE
+      - BOOKING_NOT_PROCESSABLE
+      - SESSION_IS_LOCKED
+      - SESSION_FINALISED
+    DocumentMrzConfiguration:
+      type: string
+      enum:
+      - NONE
+      - DATA_PAGE
+      - CARD_FRONT
+      - CARD_BACK
+    DeclarationItem:
+      type: object
+      description: A Yes/No question (boolean)
+      properties:
+        id:
+          type: string
+          description: Question/Declaration item id
+          example: HelbxGxFg0gpdAdnumztVA==
+        is_relevant:
+          type: boolean
+          description: Whether question is relevant for this passenger, according to current answers to all questions
+        answer:
+          description: Declaration answer (confirm/refute), if was provided
+          example: 'null'
+          type:
+          - boolean
+          - 'null'
+        question_title:
+          $ref: '#/components/schemas/QuestionTitle'
+          description: Declaration title (localised) - formed in either positive or negative form ('I am' or 'I am not'), depending on declaration
+        sample_image:
+          description: Question sample image (eg US Green Card specimen) with a title
+          anyOf:
+          - $ref: '#/components/schemas/QuestionSampleImage'
+          - type: 'null'
+        default_value:
+          type: boolean
+        type:
+          type: string
+      required:
+      - id
+      - is_relevant
+      - question_title
+      - default_value
+      - type
+    Airport:
+      type: object
+      description: Localised Airport record
+      properties:
+        airport_name:
+          type: string
+          description: Airport name
+          example: Los Angeles International Airport
+        airport_code:
+          type: string
+          description: Airport IATA code
+          example: LAX
+        city_name:
+          type: string
+          description: City name
+          example: Los Angeles
+      required:
+      - airport_name
+      - airport_code
+      - city_name
+    ArrivalPoint:
+      type: object
+      description: Arrival point - API output
+      properties:
+        airport:
+          $ref: '#/components/schemas/Airport'
+          description: Airport record
+        arrival_datetime:
+          type: string
+          description: Date and time of arrival (local)
+          pattern: $(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})^
+        country_code:
+          type: string
+          description: ISO 3166-1 alpha-3 country code
+          example: COL
+      required:
+      - airport
+      - arrival_datetime
+      - country_code
+    DeparturePoint:
+      type: object
+      description: Departure point - API output
+      properties:
+        airport:
+          $ref: '#/components/schemas/Airport'
+          description: Airport record
+        departure_datetime:
+          type: string
+          description: Date and time of departure (local)
+          pattern: $(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})^
+        country_code:
+          type: string
+          description: ISO 3166-1 alpha-3 country code
+          example: USA
+      required:
+      - airport
+      - departure_datetime
+      - country_code
+    Pax:
+      type: object
+      description: Passenger basic data (first name, last name, birthdate)
+      properties:
+        first_name:
+          description: Given names, should be provided if last_name is null
+          example: JACK MARVO
+          type:
+          - string
+          - 'null'
+        last_name:
+          description: Last name, should be provided if first_name is null
+          example: SMITH VESSEN
+          type:
+          - string
+          - 'null'
+        birthdate:
+          format: date
+          description: Birthdate, if set in DCS
+          type:
+          - string
+          - 'null'
+    ChecklistItemStatus:
+      type: string
+      enum:
+      - NOT_YET_RESOLVED
+      - RESOLVED
+      - VERIFICATION_REQUIRED
+    ComposedOr:
+      type: object
+      description: 'Composed checklist item requirement: Or([ChecklistItemRequirement])'
+      properties:
+        as_text:
+          type: string
+          description: Requirement represented as text
+          example: expiryDate >= 2025-05-27 or nationality in (GBR,USA)
+        requirements:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChecklistItemRequirement'
+          description: Embedded requirements as a list (... or ... or ...)
+        type:
+          type: string
+      required:
+      - as_text
+      - requirements
+      - type
+    Not:
+      type: object
+      description: 'Composed checklist item requirement: Not(ChecklistItemRequirement)'
+      properties:
+        as_text:
+          type: string
+          description: Requirement represented as text
+          example: not(docSubType = "TOURIST" and durationFullYears = 10)
+        requirement:
+          $ref: '#/components/schemas/ChecklistItemRequirement'
+          description: Embedded requirement
+        type:
+          type: string
+      required:
+      - as_text
+      - requirement
+      - type
+    Option:
+      type: object
+      description: Option to choose for `pick-from-list-question`
+      properties:
+        id:
+          type: string
+          description: Option id
+        title:
+          type: string
+          description: Option title (localised)
+      required:
+      - id
+      - title
+    ChecklistResolutionStatus:
+      type: string
+      enum:
+      - READY_TO_FLY
+      - ENTRY_NOT_ALLOWED
+      - ACTION_REQUIRED
+      - UNKNOWN
+      - NOT_ELIGIBLE
+    Check:
+      type: object
+      description: 'Checklist item requirement: agent check (eg "check: 2 blank pages")'
+      properties:
+        as_text:
+          type: string
+          description: Requirement represented as text
+          example: 'check: 2 blank pages'
+        type:
+          type: string
+      required:
+      - as_text
+      - type
+    QuestionSampleImage:
+      type: object
+      description: Question sample image with a name to form expressions like 'Sample of {title}'
+      properties:
+        url:
+          type: string
+          description: Image URL for a sample image to go with the question
+          example: https://zamna-webview.s3.eu-west-1.amazonaws.com/samples/usa-green-card.png
+        title:
+          description: Optional title
+          example: US Green Card
+          type:
+          - string
+          - 'null'
+      required:
+      - url
+    Start1ResponseData:
+      type: object
+      description: Response for /start endpoint
+      properties:
+        session_id:
+          type: string
+          description: MultiPax session id
+          example: aae10767-d13b-4e5c-a9fe-0ab8f13b8087
+        pax_check_token:
+          type: string
+          description: Session token to authenticate to other API endpoints
+        session:
+          description: Current session state
+          anyOf:
+          - $ref: '#/components/schemas/MultipaxSession'
+          - type: 'null'
+      required:
+      - session_id
+      - pax_check_token
+    PaxSession:
+      type: object
+      description: Pax session (ie passenger)
+      properties:
+        pax_session_id:
+          type: string
+          description: Pax session id (prefixed with 'pax_')
+          example: pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087
+        required_action:
+          description: Next action required
+          example: ANSWER_QUESTIONS
+          anyOf:
+          - $ref: '#/components/schemas/RequiredAction'
+          - type: 'null'
+        consented:
+          description: 'Consent response when provided (true: consented, false: didn''t consent), null otherwise'
+          type:
+          - boolean
+          - 'null'
+        pax:
+          $ref: '#/components/schemas/Pax'
+          description: Passenger basic data (first name, last name, birthdate)
+        checklist:
+          $ref: '#/components/schemas/Checklist'
+          description: Passenger checklist
+        is_travel_document_verified:
+          type: boolean
+          description: Whether travel document requires verification
+        is_visa_verified:
+          type: boolean
+          description: Whether visa requires verification
+        is_rp_verified:
+          type: boolean
+          description: Whether residence permit requires verification
+      required:
+      - pax_session_id
+      - pax
+      - checklist
+      - is_travel_document_verified
+      - is_visa_verified
+      - is_rp_verified
+    DocumentSidesConfiguration:
+      type: string
+      enum:
+      - SINGLE_SIDE_OR_FILE
+      - MULTIPLE_SIDES_OR_FILES
+    AllowedDocumentFormat:
+      type: string
+      enum:
+      - BOOKLET
+      - ID_CARD
+      - EMBASSY_VISA
+      - PAPER
+      - PDF
+    QuestionTitle:
+      type: object
+      description: Question title and optional subtitle
+      properties:
+        name:
+          type: string
+          description: Question title
+          example: 'Since 01/01/2011, I have visited the following countries:'
+        subtitle:
+          description: Optional question subtitle
+          example: Cuba, North Korea
+          type:
+          - string
+          - 'null'
+      required:
+      - name
+    MultipaxSession:
+      type: object
+      description: MultiPax session (ie booking)
+      properties:
+        id:
+          type: string
+          description: MultiPax session id
+          example: aae10767-d13b-4e5c-a9fe-0ab8f13b8087
+        journey:
+          $ref: '#/components/schemas/Journey'
+          description: Journey
+        paxs:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaxSession'
+          description: List of Pax sessions (ie passengers)
+      required:
+      - id
+      - journey
+      - paxs
+    DocumentSidesExpectation:
+      type: string
+      enum:
+      - DATA_PAGE
+      - CARD_FRONT
+      - CARD_BACK
+      - ALL
+    GeneralError:
+      type: object
+      properties:
+        code:
+          $ref: '#/components/schemas/GeneralErrorCode'
+        message:
+          type:
+          - string
+          - 'null'
+        details:
+          additionalProperties:
+            type: string
+          type:
+          - object
+          - 'null'
+      required:
+      - code
+    TransitPoint:
+      type: object
+      description: Transit point - API output
+      properties:
+        airport:
+          $ref: '#/components/schemas/Airport'
+          description: Airport record
+        departure_datetime:
+          type: string
+          description: Date and time of departure (local)
+          pattern: $(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})^
+        arrival_datetime:
+          type: string
+          description: Date and time of arrival (local)
+          pattern: $(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})^
+        country_code:
+          type: string
+          description: ISO 3166-1 alpha-3 country code
+          example: MEX
+      required:
+      - airport
+      - departure_datetime
+      - arrival_datetime
+      - country_code
+    HaveDocumentQuestion:
+      type: object
+      description: A Yes/No question (boolean), manifested through a positive statement of 'I do have {document type}' format
+      properties:
+        id:
+          type: string
+          description: Question id
+          example: HelbxGxFg0gpdAdnumztVA==
+        is_relevant:
+          type: boolean
+          description: Whether question is relevant for this passenger, according to current answers to all questions
+        answer:
+          description: Question answer, if was provided
+          example: 'null'
+          type:
+          - boolean
+          - 'null'
+        question_title:
+          $ref: '#/components/schemas/QuestionTitle'
+          description: Question title (localised)
+        sample_image:
+          description: Question sample image (eg US Green Card specimen) with a title
+          anyOf:
+          - $ref: '#/components/schemas/QuestionSampleImage'
+          - type: 'null'
+        doc_category_order:
+          type: integer
+          format: int32
+          description: Document category sort order
+        doc_category_title:
+          type: string
+          description: Document category (localised)
+          example: Visa
+        doc_title:
+          type: string
+          description: Document title (localised)
+          example: US Green Card
+        country:
+          description: Document country code (iso alpha-3) - can be EURO
+          example: USA
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+      required:
+      - id
+      - is_relevant
+      - question_title
+      - doc_category_order
+      - doc_category_title
+      - doc_title
+      - type
+    FieldCompare:
+      type: object
+      description: 'Checklist item requirement: compare field value ({field} {operator} {value}, eg expiryDate >= 2025-10-25)'
+      properties:
+        as_text:
+          type: string
+          description: Requirement represented as text
+          example: expiryDate >= 2025-05-27
+        field:
+          type: string
+          description: Field
+          example: expiryDate
+        operator:
+          $ref: '#/components/schemas/Operator'
+          description: Compare operator
+          example: GTE
+        value:
+          type: string
+          description: Value of the field to compare with - type depends on field
+          example: '2025-05-27'
+        type:
+          type: string
+      required:
+      - as_text
+      - field
+      - operator
+      - value
+      - type
+    ErrorContainer:
+      type: object
+      properties:
+        general_error:
+          anyOf:
+          - $ref: '#/components/schemas/GeneralError'
+          - type: 'null'
+    AllowedDocumentsSet:
+      type: object
+      description: A set of documents with which this checklist item can be resolved
+      properties:
+        force_document_type_required:
+          type: boolean
+          description: When true, it is required to provide exactly 1 value for `expected_document_types` when calling apply-document/file endpoint - ie user must choose document type they are uploading
+          example: 'false'
+        allowed_documents:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllowedDocument'
+          description: List of documents that can resolve a checklist item
+      required:
+      - force_document_type_required
+      - allowed_documents
+    InfoItem:
+      type: object
+      description: Info item - can't be resolved manually
+      properties:
+        id:
+          type: string
+          description: Checklist item id
+          example: QFJHy3K9eSufEkA7auLeZQ==
+        title:
+          type: string
+          description: Title (localised)
+          example: US Green Card
+        short_title:
+          description: Short document title (localised)
+          example: visa
+          type:
+          - string
+          - 'null'
+        description:
+          description: Description (localised)
+          example: What is ESTA?...
+          type:
+          - string
+          - 'null'
+        short_description:
+          description: Short description (localised)
+          example: You need to pay the Non-Resident Fee (DNR)
+          type:
+          - string
+          - 'null'
+        requirements:
+          items:
+            $ref: '#/components/schemas/ChecklistItemRequirement'
+          description: Any relevant requirements to present to passenger (eg hours to the onward flight for TICKET checklist item type)
+          type:
+          - array
+          - 'null'
+        external_link:
+          description: External link for more info
+          example: https://ceac.state.gov/genniv/
+          type:
+          - string
+          - 'null'
+        rule_origin:
+          $ref: '#/components/schemas/RuleOrigin'
+          description: Rule origin
+        status:
+          $ref: '#/components/schemas/ChecklistItemStatus'
+          description: Checklist item status
+          example: RESOLVED
+        type:
+          type: string
+      required:
+      - id
+      - title
+      - rule_origin
+      - status
+      - type
+    Checklist:
+      type: object
+      description: Comprises checklist statuses, questions/answers and checklist items
+      properties:
+        id:
+          type: string
+          description: Checklist id
+          example: 667e0198-af81-4276-a931-365e5065e258
+        status:
+          $ref: '#/components/schemas/ChecklistStatus'
+          description: Checklist status (ON_HOLD, ACTIVE or FINALIZED)
+          example: ACTIVE
+        nationality:
+          description: Nationality, if set
+          example: GBR
+          type:
+          - string
+          - 'null'
+        has_nationality_question:
+          type: boolean
+          description: True if nationality affects rules - require from passenger, unless `nationality` is not null (was provided already)
+          example: 'false'
+        birthdate:
+          format: date
+          description: Birthdate, if set
+          type:
+          - string
+          - 'null'
+        has_birthdate_question:
+          type: boolean
+          description: True if birthdate affects rules - require from passenger, unless `birthdate` is not null (was provided already)
+          example: 'false'
+        questions:
+          items:
+            $ref: '#/components/schemas/Question'
+          description: List of relevant questions to form the checklist, need to answer all via setAnswers endpoint
+          type:
+          - array
+          - 'null'
+        resolution_status:
+          $ref: '#/components/schemas/ChecklistResolutionStatus'
+          description: Checklist resolution status (READY_TO_FLY, ENTRY_NOT_ALLOWED, ACTION_REQUIRED, UNKNOWN or NOT_ELIGIBLE)
+          example: ACTION_REQUIRED
+        items:
+          items:
+            $ref: '#/components/schemas/ChecklistItem'
+          description: Checklist items to resolve for passenger and their status, shown once all relevant questions are answered
+          type:
+          - array
+          - 'null'
+        allowed_travel_documents_set:
+          description: All possible documents to satisfy travel document requirement
+          anyOf:
+          - $ref: '#/components/schemas/AllowedDocumentsSet'
+          - type: 'null'
+      required:
+      - id
+      - status
+      - has_nationality_question
+      - has_birthdate_question
+      - resolution_status
+    ChecklistItemRequirement:
+      oneOf:
+      - $ref: '#/components/schemas/Not'
+      - $ref: '#/components/schemas/ComposedAnd'
+      - $ref: '#/components/schemas/ComposedOr'
+      - $ref: '#/components/schemas/FieldCompare'
+      - $ref: '#/components/schemas/FieldIn'
+      - $ref: '#/components/schemas/FieldNotIn'
+      - $ref: '#/components/schemas/Check'
+      discriminator:
+        propertyName: type
+        mapping:
+          not: '#/components/schemas/Not'
+          composed-and: '#/components/schemas/ComposedAnd'
+          composed-or: '#/components/schemas/ComposedOr'
+          field-compare: '#/components/schemas/FieldCompare'
+          field-in: '#/components/schemas/FieldIn'
+          field-not-in: '#/components/schemas/FieldNotIn'
+          check: '#/components/schemas/Check'
+    RequiredAction:
+      type: string
+      enum:
+      - PROVIDE_CONSENT_RESPONSE
+      - PROVIDE_NATIONALITY_OR_BIRTHDATE
+      - PROVIDE_ADDRESS
+      - ANSWER_QUESTIONS
+      - RESOLVE_ITEMS
+  securitySchemes:
+    BearerAuth:
+      scheme: bearer
+      type: http
