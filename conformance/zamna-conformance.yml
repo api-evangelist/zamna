@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zamna-paxcheck-openapi-original.json
+note: >-
+  Derived from the Ready To Fly (PaxCheck) OpenAPI 3.1.0 and Zamna's documented
+  positioning. Zamna publicly claims GDPR compliance for passenger-data handling
+  but publishes no formal certification (SOC 2/ISO 27001) page found during this
+  pass, so no Compliance pointer is emitted.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: spec declares openapi 3.1.0
+- id: http-bearer-jwt
+  conforms: true
+  evidence: securitySchemes.BearerAuth type=http scheme=bearer (pax_check_token JWT)
+- id: oauth2
+  conforms: false
+  evidence: no oauth2 security scheme declared
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: error responses use plain HTTP status, not application/problem+json
+- id: gdpr
+  conforms: true
+  evidence: >-
+    Zamna publicly positions itself as a GDPR-compliant passenger-identity
+    platform; consent capture (setConsent) is a first-class API operation.
+    Documentation claim, not an audited certification.
+- id: icao-9303-mrz
+  conforms: true
+  evidence: >-
+    Document recognition and MRZ translation (reference docs cover MRZ format
+    translation) align with ICAO 9303 machine-readable travel document parsing.

@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.zamna.com/ + openapi/zamna-paxcheck-openapi-original.json
+versioning:
+  scheme: spec-version
+  current: '2.18'
+  docs: https://dev.zamna.com/paxcheck/
+  note: >-
+    The Ready To Fly (PaxCheck) OpenAPI declares info.version 2.18. Versioning is
+    carried in the spec document rather than in the URI path or a header. No
+    public dated changelog page was found.
+environments:
+- name: staging
+  api_host: https://paxcheck-app-dev.staging.zamna.com
+  client_host: apiserver.staging.zamna.com
+- name: production
+  client_host: apiserver.production.zamna.com
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation policy or RFC 8594 Sunset/Deprecation header support found.
+sla:
+  url: null
+  note: No public SLA/uptime document found.
+status_page: null
+deprecated_operations: []
+note: >-
+  Zamna deploys the client inside airline infrastructure (staging vs production
+  environments) rather than exposing a single public status page. No status page,
+  deprecation policy or SLA document was found, so no StatusPage or Deprecation
+  pointer is emitted.

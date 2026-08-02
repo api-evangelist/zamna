@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.zamna.com/paxcheck/ + https://dev.zamna.com/start/ + openapi/zamna-paxcheck-openapi-original.json
+authentication:
+  style: bearer-jwt
+  token: pax_check_token
+  detail: >-
+    Every session and pax-session operation requires the pax_check_token JWT
+    returned during session initialization, sent as an Authorization: Bearer
+    header (securitySchemes.BearerAuth). Session bootstrap uses either an
+    encrypted_booking_id query parameter (AES/RSA-encrypted, URL + base64
+    encoded) or a session token retrieved by the airline backend from the Zamna
+    Client. Optional index login (/start-with-booking-id-and-surname) is gated by
+    reCAPTCHA Enterprise.
+  cross_ref: authentication/zamna-authentication.yml
+idempotency:
+  supported: false
+  detail: >-
+    The API documents no idempotency-key header or parameter. Session and
+    document-apply operations are stateful mutations on a server-held session
+    rather than idempotent creates.
+pagination:
+  supported: false
+  detail: >-
+    No collection/list pagination surface. Operations act on a single
+    session/pax-session addressed by path id.
+identifiers:
+  detail: >-
+    Sessions are addressed hierarchically: a MultipaxSession id contains one or
+    more PaxSession (pax_session_id) resources. Start responses return a
+    session_id; StartWithBookingIdAndSurname takes a booking_id.
+localization:
+  supported: true
+  detail: >-
+    Companion Checklist API honours the Accept-Language header on all relevant
+    endpoints to return localized names, titles and descriptions.
+error_envelope:
+  style: http-status
+  detail: >-
+    Errors are surfaced as plain HTTP status codes (401 unauthorized, 400 bad
+    request); no RFC 9457 application/problem+json envelope. See
+    errors/zamna-problem-types.yml.
+  cross_ref: errors/zamna-problem-types.yml
+versioning:
+  cross_ref: lifecycle/zamna-lifecycle.yml
+rate_limiting:
+  detail: >-
+    No documented rate-limit signaling headers. The API is deployed within
+    airline private networks rather than as a public metered API.

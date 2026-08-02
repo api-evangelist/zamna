@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/zamna-paxcheck-openapi-original.json
+skills:
+- file: zamna-ready-to-fly-passenger-check.md
+  name: Complete a Ready To Fly passenger check
+  api: openapi/zamna-paxcheck-openapi-original.json
+  operations:
+  - getSession
+  - getPaxSession
+  - setConsent
+  - recogniseDocument
+  - applyRecognisedDocument
+  - applyTravelDocument
+  - postAnswers
+  - addAddress

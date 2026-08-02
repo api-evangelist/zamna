@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.zamna.com/start/ + https://dev.zamna.com/paxcheck/
+note: >-
+  Zamna runs a separate staging environment for airline integration and testing,
+  distinct from production. The Zamna Client is deployed inside the airline's own
+  infrastructure, so access to these hosts requires firewall allow-listing rather
+  than public sandbox credentials. Zamna publishes no public test cards / magic
+  identifiers (it verifies real travel documents), so none are captured here.
+environments:
+- name: staging
+  purpose: integration and pre-production testing
+  hosts:
+  - https://paxcheck-app-dev.staging.zamna.com   # Ready To Fly (PaxCheck) API
+  - https://checklist-app-dev.staging.zamna.com  # Checklist API (host not resolving at probe time)
+  - apiserver.staging.zamna.com                  # Zamna Client API server
+  interactive_docs:
+  - https://paxcheck-app-dev.staging.zamna.com/swagger
+  - https://paxcheck-app-dev.staging.zamna.com/redoc
+- name: production
+  hosts:
+  - apiserver.production.zamna.com
+access:
+  detail: >-
+    Airlines must configure firewall access to the staging/production API,
+    document-processing and analytics services. Authentication uses per-airline
+    private keys (auth_key.pem, sign_key.pem, webserver_auth_key.pem) injected as
+    base64-encoded environment variables into the client containers.
+test_values: []

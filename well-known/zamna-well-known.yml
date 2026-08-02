@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: live probes of Zamna hosts
+hosts:
+- host: https://zamna.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://dev.zamna.com
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+- host: https://paxcheck-app-dev.staging.zamna.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+note: >-
+  No /.well-known/ discovery documents are published on any Zamna host. The
+  developer portal (dev.zamna.com) returns 403 for these paths; zamna.com and
+  the PaxCheck app host return 404. No security.txt, OIDC/OAuth metadata,
+  api-catalog or ai-plugin found. Absence recorded as valid data.

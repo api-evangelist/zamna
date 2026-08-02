@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Zamna Ready To Fly (PaxCheck) API
+  version: 1.0.0
+extends: openapi/zamna-paxcheck-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: zamna
+    x-apievangelist-industry: aviation
+    x-apievangelist-auth: bearer-jwt (pax_check_token)
+    description: >-
+      Zamna Ready To Fly (PaxCheck) API — guides an airline passenger through a
+      Zamna session (start, consent, document recognition/apply, checklist
+      answers, US address) before arrival at the airport. Bearer JWT
+      (pax_check_token) authenticated.
+- target: $.servers
+  update:
+  - url: https://paxcheck-app-dev.staging.zamna.com
+    description: Staging (documented developer host)
+- target: $.tags
+  update:
+  - name: session
+    description: Session and passenger-session lifecycle operations.
+  - name: documents
+    description: Travel-document recognition and application operations.

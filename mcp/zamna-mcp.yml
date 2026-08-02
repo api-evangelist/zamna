@@ -1,0 +1,40 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/zamna-paxcheck-openapi-original.json
+note: >-
+  Zamna publishes no official hosted or remote MCP server. This is a CANDIDATE
+  tool list derived one-to-one from the Ready To Fly (PaxCheck) OpenAPI 3.1.0
+  operations, for evaluation only. All operations require the pax_check_token
+  bearer JWT obtained during session initialization.
+server:
+  name: zamna-paxcheck
+  transport: http
+tools:
+- name: get_session
+  description: Retrieve a MultiPax session by session id.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#getSession
+- name: get_pax_session
+  description: Retrieve a single passenger session within a MultiPax session.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#getPaxSession
+- name: set_consent
+  description: Submit passenger consent for a session.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#setConsent
+- name: post_answers
+  description: Submit a passenger's answers to checklist questions.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#postAnswers
+- name: recognise_document
+  description: Recognise/scan a travel document image for a passenger session.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#recogniseDocument
+- name: apply_recognised_document
+  description: Apply a previously recognised document to the passenger session.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#applyRecognisedDocument
+- name: apply_travel_document
+  description: Manually apply a travel document to the passenger session.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#applyTravelDocument
+- name: apply_manual_document
+  description: Manually apply a non-travel document to the passenger session.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#applyManualDocument
+- name: add_address
+  description: Submit a US destination address for a passenger session.
+  source_operation: openapi/zamna-paxcheck-openapi-original.json#addAddress

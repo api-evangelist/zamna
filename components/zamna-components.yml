@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: https://dev.zamna.com/ + https://dev.zamna.com/paxcheck/
+note: >-
+  Zamna ships client-side / embeddable surfaces alongside the REST APIs, distinct
+  from server-side SDKs. Captured from the developer portal.
+components:
+- family: WebView
+  name: Zamna WebView
+  kind: embeddable-web-application
+  description: >-
+    Pluggable, fully automated and highly customisable web application that drives
+    the Manage-My-Booking (MMB) and Online Check-In (OLCI) passenger flows,
+    launched from the /start2 browser entry point of the Ready To Fly API.
+  docs: https://dev.zamna.com/paxcheck/
+- family: Scanner
+  name: In-browser Scanner
+  kind: client-side-capture
+  description: >-
+    In-browser document data capture that runs in the passenger's own browser to
+    scan travel documents (passport/MRZ, QR) without personal data leaving the
+    airline security premises.
+  docs: https://dev.zamna.com/

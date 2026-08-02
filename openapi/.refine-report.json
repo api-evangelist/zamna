@@ -1,0 +1,20 @@
+{
+  "provider": "zamna",
+  "sources": [
+    "zamna-session-api-openapi.yml",
+    "zamna-start-api-openapi.yml",
+    "zamna-start-with-booking-id-and-surname-api-openapi.yml",
+    "zamna-start2-api-openapi.yml"
+  ],
+  "outputs": [
+    "zamna-session-api-openapi.yml",
+    "zamna-start-api-openapi.yml",
+    "zamna-start-with-booking-id-and-surname-api-openapi.yml",
+    "zamna-start2-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

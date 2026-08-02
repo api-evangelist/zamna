@@ -1,0 +1,26 @@
+# Zamna
+
+> Zamna is a GDPR-compliant digital identity and passenger-data verification platform for the aviation and travel industry. Its Ready To Fly (PaxCheck) API and Checklist API let airlines verify passport, visa and health documents and resolve live travel rules before a passenger reaches the airport. Zamna has verified 60M+ travel identities across 179+ countries and integrates with airline PSS/DCS systems (Amadeus Altea, Navitaire, Sabre).
+
+## APIs
+- [Ready To Fly (PaxCheck) API](https://dev.zamna.com/paxcheck/): Session-based passenger verification — start, consent, document recognise/apply, checklist answers, US address. Bearer JWT (pax_check_token), OpenAPI 3.1.0.
+- [Checklist API](https://dev.zamna.com/checklist/): Resolves live travel rules into localized per-passenger document requirements (Accept-Language supported).
+
+## Specs
+- [Ready To Fly OpenAPI 3.1.0 (original)](https://paxcheck-app-dev.staging.zamna.com/openapi)
+- [Ready To Fly Swagger UI](https://paxcheck-app-dev.staging.zamna.com/swagger)
+- [Ready To Fly ReDoc](https://paxcheck-app-dev.staging.zamna.com/redoc)
+
+## Docs
+- [Developer Portal](https://dev.zamna.com/)
+- [Getting Started](https://dev.zamna.com/start/)
+- [Reference (name matching, MRZ, analytics)](https://dev.zamna.com/reference/)
+
+## Products
+- WebView: pluggable, customisable MMB/OLCI web application.
+- In-browser Scanner: client-side document capture in the passenger's browser.
+- Zamna Diamonds: identity/data verification persistence.
+- Docs Processing: automated extraction from passports, photos and QR codes.
+
+## Auth
+- Bearer JWT (pax_check_token) on all session operations; session bootstrap via encrypted_booking_id (AES/RSA + base64) or an airline-backend session token. Optional index login gated by reCAPTCHA Enterprise.

@@ -1,0 +1,49 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zamna-paxcheck-openapi-original.json
+format: http-status
+note: >-
+  Derived from the declared HTTP response codes in the Ready To Fly (PaxCheck)
+  OpenAPI. The spec does NOT use RFC 9457 application/problem+json; error
+  responses are plain HTTP status codes. Only 400/401/302 are declared across
+  operations. Titles/remediation are inferred from the documented auth model
+  (pax_check_token bearer JWT) and the session start flow.
+problems:
+- status: 401
+  title: Unauthorized
+  meaning: >-
+    Missing, invalid or expired pax_check_token bearer JWT. Returned by every
+    session and pax-session operation (getSession, getPaxSession, setConsent,
+    postAnswers, recogniseDocument, applyRecognisedDocument, applyTravelDocument,
+    applyManualDocument, addAddress) and by /start2.
+  remediation: >-
+    Re-initialize the session via /start (or /start2) to obtain a fresh
+    pax_check_token and resend with an Authorization: Bearer header.
+  source_operations:
+  - getSession
+  - getPaxSession
+  - setConsent
+  - postAnswers
+  - recogniseDocument
+  - applyRecognisedDocument
+  - applyTravelDocument
+  - applyManualDocument
+  - addAddress
+- status: 400
+  title: Bad Request
+  meaning: >-
+    Malformed or missing initialization parameters on the browser start flow
+    (e.g. a missing/invalid encrypted_booking_id query parameter).
+  remediation: >-
+    Verify the encrypted_booking_id is correctly AES/RSA encrypted, URL and
+    base64 encoded before redirecting to /start2.
+  source_operations:
+  - start2
+- status: 302
+  title: Found (redirect)
+  meaning: >-
+    The browser start flow (/start2) redirects the passenger's browser into the
+    WebView experience on success.
+  remediation: Follow the Location header.
+  source_operations:
+  - start2

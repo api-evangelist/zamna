@@ -1,0 +1,56 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zamna-paxcheck-openapi-original.json
+note: >-
+  Entity-relationship graph derived from the Ready To Fly (PaxCheck) OpenAPI
+  schemas ($ref links and id-bearing objects across 105 component schemas). The
+  session hierarchy is the spine: a MultipaxSession contains PaxSessions, each of
+  which resolves a Checklist of DocumentRequirements and Questions.
+entities:
+- name: MultipaxSession
+  id_field: id
+  description: A booking-level session spanning one or more passengers.
+- name: PaxSession
+  id_field: pax_session_id
+  description: A single passenger's session within a MultipaxSession.
+- name: Checklist
+  id_field: id
+  description: The resolved set of requirements and questions for a passenger.
+- name: DocumentRequirement
+  id_field: id
+  description: A required travel document computed from live travel rules.
+- name: Question
+  id_field: id
+  description: A rule-driven question (HaveDocumentQuestion, PickFromListQuestion, DeclarationItem).
+- name: Option
+  id_field: id
+  description: A selectable option on a PickFromListQuestion.
+- name: InfoItem
+  id_field: id
+  description: An informational checklist item.
+- name: Journey
+  description: The trip (Airport / ArrivalPoint / DeparturePoint / TransitPoint) driving rule resolution.
+relationships:
+- from: MultipaxSession
+  to: PaxSession
+  type: has_many
+  via: pax_session_id
+- from: PaxSession
+  to: Checklist
+  type: has_one
+- from: Checklist
+  to: DocumentRequirement
+  type: has_many
+- from: Checklist
+  to: Question
+  type: has_many
+- from: Checklist
+  to: InfoItem
+  type: has_many
+- from: PickFromListQuestion
+  to: Option
+  type: has_many
+  via: id
+- from: PaxSession
+  to: Journey
+  type: has_one
