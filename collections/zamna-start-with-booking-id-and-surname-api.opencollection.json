@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zamna Ready To Fly Session Start With Booking Id And Surname API",
+    "version": "2.18"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Start With Booking Id And Surname",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate MultiPax session with booking id and surname",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/start-with-booking-id-and-surname",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate MultiPax session with booking id and surname"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

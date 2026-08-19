@@ -1,0 +1,379 @@
+{
+  "item": [
+    {
+      "id": "5e3e34a0-6e03-4d72-9838-96169da24cee",
+      "name": "Start2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c79bd01-12f1-445a-8c30-3545afd8e4b7",
+          "name": "For in-browser redirect — initiate MultiPax session with encrypted booking id, redirect browser to URL with session token to authorize further requests",
+          "request": {
+            "name": "For in-browser redirect — initiate MultiPax session with encrypted booking id, redirect browser to URL with session token to authorize further requests",
+            "description": {},
+            "url": {
+              "path": [
+                "start2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "encrypted_booking_id",
+                  "value": "<string>",
+                  "description": "(Required) Base64-encoded encrypted booking id"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_url",
+                  "value": "<string>",
+                  "description": "(Required) URL to redirect to with auth token as query param"
+                },
+                {
+                  "disabled": false,
+                  "key": "return_url",
+                  "value": "<string>",
+                  "description": "URL to return after passengers are Ready To Fly, or in case of errors"
+                },
+                {
+                  "disabled": false,
+                  "key": "pax_ids",
+                  "value": "<string>",
+                  "description": "comma-separated list of pax ids to load from booking (if not specified, all pax will be loaded)"
+                },
+                {
+                  "disabled": false,
+                  "key": "consented",
+                  "value": "<string>",
+                  "description": "Whether consent should be set for session, true/false"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "Locale to redirect with (locale parameter is added to redirect_url)"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Alias for 'locale'. Locale to redirect with (locale parameter is added to redirect_url)"
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>",
+                  "description": "Mode to pass through to webview (mode parameter is added to redirect_url)"
+                },
+                {
+                  "disabled": false,
+                  "key": "departure_station",
+                  "value": "<string>",
+                  "description": "Departure station to select journey by (if not specified, first in future journey will be selected)"
+                },
+                {
+                  "disabled": false,
+                  "key": "departureCity",
+                  "value": "<string>",
+                  "description": "Alias for departure_station. Departure station to select journey by (if not specified, first in future journey will be selected)"
+                },
+                {
+                  "disabled": false,
+                  "key": "encryption_mode",
+                  "value": "<string>",
+                  "description": "Encryption mode to use for booking id decryption. If omitted used the only one configured, or else AES_CBC if multiple modes are configured."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba7de856-5098-42b4-8ff4-777e4d02d87b",
+              "name": "Location of the redirect contains redirect_url with added session token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "start2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "encrypted_booking_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pax_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consented",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departure_station",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departureCity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encryption_mode",
+                      "value": "AES_CBC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d8457a8-febc-4a65-a129-378073b7afc0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "start2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "encrypted_booking_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pax_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consented",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departure_station",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departureCity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encryption_mode",
+                      "value": "AES_CBC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "93a53db8-4218-4d20-bce6-347abca0622f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "start2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "encrypted_booking_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pax_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consented",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departure_station",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "departureCity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encryption_mode",
+                      "value": "AES_CBC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "356e53a2-4ded-4b15-886d-6d74e1982e65",
+    "name": "Zamna Ready To Fly Session Start2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

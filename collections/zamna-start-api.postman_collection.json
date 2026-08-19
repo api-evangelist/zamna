@@ -1,0 +1,153 @@
+{
+  "item": [
+    {
+      "id": "8abe1f49-509d-4671-b82e-5cc7d9de0d04",
+      "name": "Start",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5af9d6f-dd66-4def-9a38-bc66e601e608",
+          "name": "Initiate MultiPax session with encrypted booking id, get session token to authorize further requests",
+          "request": {
+            "name": "Initiate MultiPax session with encrypted booking id, get session token to authorize further requests",
+            "description": {},
+            "url": {
+              "path": [
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "encrypted_booking_id",
+                  "value": "<string>",
+                  "description": "(Required) Base64-encoded encrypted booking id"
+                },
+                {
+                  "disabled": false,
+                  "key": "consented",
+                  "value": "<string>",
+                  "description": "Whether consent should be set for session, true/false"
+                },
+                {
+                  "disabled": false,
+                  "key": "pax_ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of pax ids to load from booking (if not specified, all pax will be loaded)"
+                },
+                {
+                  "disabled": false,
+                  "key": "encryption_mode",
+                  "value": "<string>",
+                  "description": "Encryption mode to use for booking id decryption. If omitted used the only one configured, or else AES_CBC if multiple modes are configured."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea05e7fc-1753-40a8-83ea-4ab05a6ef2ef",
+              "name": "MultiPax session id and token to authorize further requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "encrypted_booking_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "consented",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pax_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "encryption_mode",
+                      "value": "AES_CBC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"session_id\": \"aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n    \"pax_check_token\": \"string\",\n    \"session\": {\n      \"id\": \"aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n      \"journey\": {\n        \"departure\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"transit\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"arrival\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"flight_numbers\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"paxs\": [\n        {\n          \"pax_session_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pax\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"checklist\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_travel_document_verified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_visa_verified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_rp_verified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"required_action\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"consented\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"pax_session_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"pax\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"checklist\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_travel_document_verified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_visa_verified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"is_rp_verified\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"required_action\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"consented\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    }\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"BOOKING_NOT_PROCESSABLE\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "13117e7b-1c50-43e6-a6b0-f85dcf8f1a0a",
+    "name": "Zamna Ready To Fly Session Start API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "item": [
+    {
+      "id": "14025ede-7f8e-4dac-a98e-d46d497ec21d",
+      "name": "Start With Booking Id And Surname",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f474911c-ca95-4bd5-b138-262a5f2109c4",
+          "name": "Initiate MultiPax session with booking id and surname",
+          "request": {
+            "name": "Initiate MultiPax session with booking id and surname",
+            "description": {},
+            "url": {
+              "path": [
+                "start-with-booking-id-and-surname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"booking_id\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"recaptcha_response\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b25579d-66a4-479b-873c-e658ca928089",
+              "name": "MultiPax session id and token to authorize further requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "start-with-booking-id-and-surname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"booking_id\": \"BC45AS\",\n  \"surname\": \"SMITH\",\n  \"recaptcha_response\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"session_id\": \"aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n    \"pax_check_token\": \"string\",\n    \"return_url\": \"string\"\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"SESSION_FINALISED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0cc5a4aa-c1e4-4983-870f-48e6a9328b14",
+    "name": "Zamna Ready To Fly Session Start With Booking Id And Surname API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

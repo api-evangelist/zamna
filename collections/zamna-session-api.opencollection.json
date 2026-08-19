@@ -1,0 +1,402 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zamna Ready To Fly Session API",
+    "version": "2.18"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Session",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get MultiPax session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/session/:sessionId",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get MultiPax session"
+        },
+        {
+          "info": {
+            "name": "Get Pax session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/session/:sessionId/pax-session/:paxSessionId",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              },
+              {
+                "name": "paxSessionId",
+                "value": "pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "Pax session id (prefixed with 'pax_')"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Pax session"
+        },
+        {
+          "info": {
+            "name": "Add address to pax session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/session/:sessionId/pax-session/:paxSessionId/address",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              },
+              {
+                "name": "paxSessionId",
+                "value": "pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "Pax session id (prefixed with 'pax_')"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add address to pax session"
+        },
+        {
+          "info": {
+            "name": "Provide nationality and/or birthdate and/or set answers to questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/session/:sessionId/pax-session/:paxSessionId/answers",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              },
+              {
+                "name": "paxSessionId",
+                "value": "pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "Pax session id (prefixed with 'pax_')"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Provide nationality and/or birthdate and/or set answers to questions"
+        },
+        {
+          "info": {
+            "name": "Apply manually provided non-travel document data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/session/:sessionId/pax-session/:paxSessionId/apply-document/manual",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              },
+              {
+                "name": "paxSessionId",
+                "value": "pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "Pax session id (prefixed with 'pax_')"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Apply manually provided non-travel document data"
+        },
+        {
+          "info": {
+            "name": "Apply document recognised by /recognise-document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/session/:sessionId/pax-session/:paxSessionId/apply-document/recognised",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              },
+              {
+                "name": "paxSessionId",
+                "value": "pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "Pax session id (prefixed with 'pax_')"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Apply document recognised by /recognise-document"
+        },
+        {
+          "info": {
+            "name": "Apply manually provided travel document data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/session/:sessionId/pax-session/:paxSessionId/apply-document/travel-document",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              },
+              {
+                "name": "paxSessionId",
+                "value": "pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "Pax session id (prefixed with 'pax_')"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Apply manually provided travel document data"
+        },
+        {
+          "info": {
+            "name": "Recognise document (photo, scan or PDF)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/session/:sessionId/pax-session/:paxSessionId/recognise-document",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              },
+              {
+                "name": "paxSessionId",
+                "value": "pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "Pax session id (prefixed with 'pax_')"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "method",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "expected_document_types",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "page_index_to_process",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "files",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Recognise document (photo, scan or PDF)"
+        },
+        {
+          "info": {
+            "name": "Set consent for MultiPax session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/session/:sessionId/set-consent",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              },
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "sessionId",
+                "value": "aae10767-d13b-4e5c-a9fe-0ab8f13b8087",
+                "type": "path",
+                "description": "MultiPax session id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set consent for MultiPax session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

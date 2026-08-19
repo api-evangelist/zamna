@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zamna Ready To Fly Session Start2 API",
+    "version": "2.18"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Start2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "For in-browser redirect — initiate MultiPax session with encrypted booking id, redirect browser to URL with session token to authorize further requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/start2",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "encrypted_booking_id",
+                "value": "",
+                "type": "query",
+                "description": "Base64-encoded encrypted booking id"
+              },
+              {
+                "name": "redirect_url",
+                "value": "",
+                "type": "query",
+                "description": "URL to redirect to with auth token as query param"
+              },
+              {
+                "name": "return_url",
+                "value": "",
+                "type": "query",
+                "description": "URL to return after passengers are Ready To Fly, or in case of errors"
+              },
+              {
+                "name": "pax_ids",
+                "value": "",
+                "type": "query",
+                "description": "comma-separated list of pax ids to load from booking (if not specified, all pax will be loaded)"
+              },
+              {
+                "name": "consented",
+                "value": "",
+                "type": "query",
+                "description": "Whether consent should be set for session, true/false"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale to redirect with (locale parameter is added to redirect_url)"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Alias for 'locale'. Locale to redirect with (locale parameter is added to redirect_url)"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query",
+                "description": "Mode to pass through to webview (mode parameter is added to redirect_url)"
+              },
+              {
+                "name": "departure_station",
+                "value": "",
+                "type": "query",
+                "description": "Departure station to select journey by (if not specified, first in future journey will be selected)"
+              },
+              {
+                "name": "departureCity",
+                "value": "",
+                "type": "query",
+                "description": "Alias for departure_station. Departure station to select journey by (if not specified, first in future journey will be selected)"
+              },
+              {
+                "name": "encryption_mode",
+                "value": "AES_CBC",
+                "type": "query",
+                "description": "Encryption mode to use for booking id decryption. If omitted used the only one configured, or else AES_CBC if multiple modes are configured."
+              }
+            ]
+          },
+          "docs": "For in-browser redirect — initiate MultiPax session with encrypted booking id, redirect browser to URL with session token to authorize further requests"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

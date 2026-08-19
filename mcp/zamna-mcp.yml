@@ -2,11 +2,9 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/zamna-paxcheck-openapi-original.json
-note: >-
-  Zamna publishes no official hosted or remote MCP server. This is a CANDIDATE
-  tool list derived one-to-one from the Ready To Fly (PaxCheck) OpenAPI 3.1.0
-  operations, for evaluation only. All operations require the pax_check_token
-  bearer JWT obtained during session initialization.
+note: Zamna publishes no official hosted or remote MCP server. This is a CANDIDATE tool list derived one-to-one
+  from the Ready To Fly (PaxCheck) OpenAPI 3.1.0 operations, for evaluation only. All operations require
+  the pax_check_token bearer JWT obtained during session initialization.
 server:
   name: zamna-paxcheck
   transport: http
@@ -38,3 +36,9 @@ tools:
 - name: add_address
   description: Submit a US destination address for a passenger session.
   source_operation: openapi/zamna-paxcheck-openapi-original.json#addAddress
+deployment:
+  mode: none
+  verified: derived
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census

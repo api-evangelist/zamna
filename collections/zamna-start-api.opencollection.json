@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zamna Ready To Fly Session Start API",
+    "version": "2.18"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Start",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Initiate MultiPax session with encrypted booking id, get session token to authorize further requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/start",
+            "headers": [
+              {
+                "name": "X-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "encrypted_booking_id",
+                "value": "",
+                "type": "query",
+                "description": "Base64-encoded encrypted booking id"
+              },
+              {
+                "name": "consented",
+                "value": "",
+                "type": "query",
+                "description": "Whether consent should be set for session, true/false"
+              },
+              {
+                "name": "pax_ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of pax ids to load from booking (if not specified, all pax will be loaded)"
+              },
+              {
+                "name": "encryption_mode",
+                "value": "AES_CBC",
+                "type": "query",
+                "description": "Encryption mode to use for booking id decryption. If omitted used the only one configured, or else AES_CBC if multiple modes are configured."
+              }
+            ]
+          },
+          "docs": "Initiate MultiPax session with encrypted booking id, get session token to authorize further requests"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

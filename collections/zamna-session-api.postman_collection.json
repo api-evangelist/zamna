@@ -1,0 +1,2185 @@
+{
+  "item": [
+    {
+      "id": "789f9cf8-3068-4ce1-b7e9-6a9aa2e87c65",
+      "name": "Session",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11242e95-c6b8-47c1-9920-5f596dfc7db8",
+          "name": "Get MultiPax session",
+          "request": {
+            "name": "Get MultiPax session",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bdf375f8-7ee9-40e4-aef0-dcad808ca163",
+              "name": "MultiPax session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n    \"journey\": {\n      \"departure\": {\n        \"airport\": {\n          \"airport_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"airport_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"departure_datetime\": \"4381-08-04T58:47\",\n        \"country_code\": \"USA\"\n      },\n      \"transit\": [\n        {\n          \"airport\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"departure_datetime\": \"2167-60-77T50:90\",\n          \"arrival_datetime\": \"3850-64-81T03:53\",\n          \"country_code\": \"MEX\"\n        },\n        {\n          \"airport\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"departure_datetime\": \"2219-32-58T07:19\",\n          \"arrival_datetime\": \"2945-79-54T96:26\",\n          \"country_code\": \"MEX\"\n        }\n      ],\n      \"arrival\": {\n        \"airport\": {\n          \"airport_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"airport_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"arrival_datetime\": \"9403-40-10T43:67\",\n        \"country_code\": \"COL\"\n      },\n      \"flight_numbers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"paxs\": [\n      {\n        \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n        \"pax\": {\n          \"first_name\": \"JACK MARVO\",\n          \"last_name\": \"SMITH VESSEN\",\n          \"birthdate\": \"1949-10-07\"\n        },\n        \"checklist\": {\n          \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"has_nationality_question\": false,\n          \"has_birthdate_question\": false,\n          \"resolution_status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nationality\": \"GBR\",\n          \"birthdate\": \"2009-08-18\",\n          \"questions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"allowed_travel_documents_set\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"is_travel_document_verified\": false,\n        \"is_visa_verified\": false,\n        \"is_rp_verified\": true,\n        \"required_action\": \"PROVIDE_NATIONALITY_OR_BIRTHDATE\",\n        \"consented\": false\n      },\n      {\n        \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n        \"pax\": {\n          \"first_name\": \"JACK MARVO\",\n          \"last_name\": \"SMITH VESSEN\",\n          \"birthdate\": \"1956-12-17\"\n        },\n        \"checklist\": {\n          \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"has_nationality_question\": true,\n          \"has_birthdate_question\": false,\n          \"resolution_status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nationality\": \"GBR\",\n          \"birthdate\": \"2025-11-19\",\n          \"questions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"allowed_travel_documents_set\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"is_travel_document_verified\": true,\n        \"is_visa_verified\": false,\n        \"is_rp_verified\": true,\n        \"required_action\": \"PROVIDE_ADDRESS\",\n        \"consented\": true\n      }\n    ]\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"SESSION_IS_LOCKED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17b80dd1-07ae-479c-9cac-d81a485d28c4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14501948-b0fa-4362-bed1-58a9311ddf6e",
+          "name": "Get Pax session",
+          "request": {
+            "name": "Get Pax session",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "pax-session",
+                ":paxSessionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paxSessionId",
+                  "description": "(Required) Pax session id (prefixed with 'pax_')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d538049e-3d62-44ee-b7a9-a20e5292ac74",
+              "name": "Pax session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n    \"pax\": {\n      \"first_name\": \"JACK MARVO\",\n      \"last_name\": \"SMITH VESSEN\",\n      \"birthdate\": \"1982-04-26\"\n    },\n    \"checklist\": {\n      \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n      \"status\": \"ACTIVE\",\n      \"has_nationality_question\": false,\n      \"has_birthdate_question\": false,\n      \"resolution_status\": \"ACTION_REQUIRED\",\n      \"nationality\": \"GBR\",\n      \"birthdate\": \"1962-09-16\",\n      \"questions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"items\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"allowed_travel_documents_set\": {\n        \"force_document_type_required\": false,\n        \"allowed_documents\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    \"is_travel_document_verified\": false,\n    \"is_visa_verified\": true,\n    \"is_rp_verified\": false,\n    \"required_action\": \"PROVIDE_CONSENT_RESPONSE\",\n    \"consented\": true\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"SESSION_IS_LOCKED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15137b5a-59f1-4955-9bb7-97bfbf532616",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7ddcb31-905a-400c-849e-0ad8d816cb60",
+          "name": "Add address to pax session",
+          "request": {
+            "name": "Add address to pax session",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "pax-session",
+                ":paxSessionId",
+                "address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paxSessionId",
+                  "description": "(Required) Pax session id (prefixed with 'pax_')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"address\": {\n    \"lineOne\": \"<string,null>\",\n    \"lineTwo\": \"<string,null>\",\n    \"lineThree\": \"<string,null>\",\n    \"city\": \"<string,null>\",\n    \"state\": \"<string,null>\",\n    \"postalCode\": \"<string,null>\",\n    \"countryCode\": \"<string,null>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "986ba820-9db6-4592-bf3b-840d0eb21e27",
+              "name": "Updated pax session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": {\n    \"lineOne\": \"string\",\n    \"lineTwo\": \"string\",\n    \"lineThree\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"updated_pax_session\": {\n      \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n      \"pax\": {\n        \"first_name\": \"JACK MARVO\",\n        \"last_name\": \"SMITH VESSEN\",\n        \"birthdate\": \"1953-11-02\"\n      },\n      \"checklist\": {\n        \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n        \"status\": \"ACTIVE\",\n        \"has_nationality_question\": true,\n        \"has_birthdate_question\": false,\n        \"resolution_status\": \"ACTION_REQUIRED\",\n        \"nationality\": \"GBR\",\n        \"birthdate\": \"1954-11-16\",\n        \"questions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"items\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowed_travel_documents_set\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"is_travel_document_verified\": true,\n      \"is_visa_verified\": false,\n      \"is_rp_verified\": false,\n      \"required_action\": \"ANSWER_QUESTIONS\",\n      \"consented\": false\n    }\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"SESSION_FINALISED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2d70433-17de-46fb-9fa6-bdbd2cab92dc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"address\": {\n    \"lineOne\": \"string\",\n    \"lineTwo\": \"string\",\n    \"lineThree\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"postalCode\": \"string\",\n    \"countryCode\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c3677bd-90b7-4684-8a2a-12d7e2bf39c7",
+          "name": "Provide nationality and/or birthdate and/or set answers to questions",
+          "request": {
+            "name": "Provide nationality and/or birthdate and/or set answers to questions",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "pax-session",
+                ":paxSessionId",
+                "answers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paxSessionId",
+                  "description": "(Required) Pax session id (prefixed with 'pax_')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nationality\": \"<string,null>\",\n  \"birthdate\": \"<string,null-date>\",\n  \"answers\": [\n    {\n      \"question_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"value\": \"<boolean,null>\"\n    },\n    {\n      \"question_id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"value\": \"<boolean,null>\"\n    }\n  ],\n  \"confirm_declarations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refute_declarations\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "36dadb8b-f7a9-4611-b7c7-10018db6eb9f",
+              "name": "Updated Pax session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "answers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nationality\": \"MEX\",\n  \"birthdate\": \"<string,null-date>\",\n  \"answers\": [\n    {\n      \"question_id\": \"HelbxGxFg0gpdAdnumztVA==\",\n      \"type\": \"string\",\n      \"value\": false\n    },\n    {\n      \"question_id\": \"HelbxGxFg0gpdAdnumztVA==\",\n      \"type\": \"string\",\n      \"value\": false\n    }\n  ],\n  \"confirm_declarations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refute_declarations\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n    \"pax\": {\n      \"first_name\": \"JACK MARVO\",\n      \"last_name\": \"SMITH VESSEN\",\n      \"birthdate\": \"1982-04-26\"\n    },\n    \"checklist\": {\n      \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n      \"status\": \"ACTIVE\",\n      \"has_nationality_question\": false,\n      \"has_birthdate_question\": false,\n      \"resolution_status\": \"ACTION_REQUIRED\",\n      \"nationality\": \"GBR\",\n      \"birthdate\": \"1962-09-16\",\n      \"questions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"items\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"allowed_travel_documents_set\": {\n        \"force_document_type_required\": false,\n        \"allowed_documents\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      }\n    },\n    \"is_travel_document_verified\": false,\n    \"is_visa_verified\": true,\n    \"is_rp_verified\": false,\n    \"required_action\": \"PROVIDE_CONSENT_RESPONSE\",\n    \"consented\": true\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"SESSION_IS_LOCKED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c7c7d36-5c22-4cf4-b99f-d0fd90bec4d0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "answers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nationality\": \"MEX\",\n  \"birthdate\": \"<string,null-date>\",\n  \"answers\": [\n    {\n      \"question_id\": \"HelbxGxFg0gpdAdnumztVA==\",\n      \"type\": \"string\",\n      \"value\": false\n    },\n    {\n      \"question_id\": \"HelbxGxFg0gpdAdnumztVA==\",\n      \"type\": \"string\",\n      \"value\": false\n    }\n  ],\n  \"confirm_declarations\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"refute_declarations\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71952ea6-2c01-4d9c-b1c1-4be514b234f4",
+          "name": "Apply manually provided non-travel document data",
+          "request": {
+            "name": "Apply manually provided non-travel document data",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "pax-session",
+                ":paxSessionId",
+                "apply-document",
+                "manual"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paxSessionId",
+                  "description": "(Required) Pax session id (prefixed with 'pax_')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"document\": {\n    \"travelDate\": \"<date>\",\n    \"type\": \"<string>\"\n  },\n  \"ignore_mistakes\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "940a05d2-b039-4061-97f4-17f04e99c3bd",
+              "name": "Either error (rules mismatch), or success (with updated Pax session)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "apply-document",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"document\": {\n    \"travelDate\": \"2017-08-24\",\n    \"type\": \"string\"\n  },\n  \"ignore_mistakes\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"successfully_verified\": true,\n    \"updated_pax_session\": {\n      \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n      \"pax\": {\n        \"first_name\": \"JACK MARVO\",\n        \"last_name\": \"SMITH VESSEN\",\n        \"birthdate\": \"1979-11-12\"\n      },\n      \"checklist\": {\n        \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n        \"status\": \"ACTIVE\",\n        \"has_nationality_question\": false,\n        \"has_birthdate_question\": true,\n        \"resolution_status\": \"ACTION_REQUIRED\",\n        \"nationality\": \"GBR\",\n        \"birthdate\": \"1946-10-28\",\n        \"questions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"items\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowed_travel_documents_set\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"is_travel_document_verified\": false,\n      \"is_visa_verified\": true,\n      \"is_rp_verified\": false,\n      \"required_action\": \"PROVIDE_NATIONALITY_OR_BIRTHDATE\",\n      \"consented\": false\n    }\n  },\n  \"error\": {\n    \"operationError\": {\n      \"type\": \"string\",\n      \"given_name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"surname\": [\n        \"string\",\n        \"string\"\n      ],\n      \"full_name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"number\": [\n        \"string\",\n        \"string\"\n      ],\n      \"birthdate\": [\n        \"1990-11-16\",\n        \"1973-09-30\"\n      ],\n      \"sex\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"nationality\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"general_error\": {\n      \"code\": \"SESSION_FINALISED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08ae038e-a281-4948-852e-d783bcc13d18",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "apply-document",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"document\": {\n    \"travelDate\": \"2017-08-24\",\n    \"type\": \"string\"\n  },\n  \"ignore_mistakes\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddf6b2af-65c7-40b6-8a74-2189a51643a4",
+          "name": "Apply document recognised by /recognise-document",
+          "request": {
+            "name": "Apply document recognised by /recognise-document",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "pax-session",
+                ":paxSessionId",
+                "apply-document",
+                "recognised"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paxSessionId",
+                  "description": "(Required) Pax session id (prefixed with 'pax_')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documents\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"document_type\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"method\": \"<string>\",\n  \"is_travel_document\": \"<boolean>\",\n  \"additional_pax_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d007a40-509a-41ce-b110-9c0c3cf6d972",
+              "name": "Success (with updated Pax session) or Error (doc processing, id or rules mismatch)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "apply-document",
+                    "recognised"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"document_type\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"method\": \"SCAN\",\n  \"is_travel_document\": \"<boolean>\",\n  \"additional_pax_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"updated_pax_session\": {\n      \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n      \"pax\": {\n        \"first_name\": \"JACK MARVO\",\n        \"last_name\": \"SMITH VESSEN\",\n        \"birthdate\": \"1988-04-02\"\n      },\n      \"checklist\": {\n        \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n        \"status\": \"ACTIVE\",\n        \"has_nationality_question\": true,\n        \"has_birthdate_question\": true,\n        \"resolution_status\": \"ACTION_REQUIRED\",\n        \"nationality\": \"GBR\",\n        \"birthdate\": \"1969-05-31\",\n        \"questions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"items\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowed_travel_documents_set\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"is_travel_document_verified\": true,\n      \"is_visa_verified\": false,\n      \"is_rp_verified\": true,\n      \"required_action\": \"PROVIDE_CONSENT_RESPONSE\",\n      \"consented\": false\n    },\n    \"additional_pax_sessions\": [\n      {\n        \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n        \"pax\": {\n          \"first_name\": \"JACK MARVO\",\n          \"last_name\": \"SMITH VESSEN\",\n          \"birthdate\": \"2003-04-18\"\n        },\n        \"checklist\": {\n          \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"has_nationality_question\": false,\n          \"has_birthdate_question\": true,\n          \"resolution_status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nationality\": \"GBR\",\n          \"birthdate\": \"1987-07-23\",\n          \"questions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"allowed_travel_documents_set\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"is_travel_document_verified\": true,\n        \"is_visa_verified\": false,\n        \"is_rp_verified\": true,\n        \"required_action\": \"RESOLVE_ITEMS\",\n        \"consented\": true\n      },\n      {\n        \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n        \"pax\": {\n          \"first_name\": \"JACK MARVO\",\n          \"last_name\": \"SMITH VESSEN\",\n          \"birthdate\": \"2024-01-04\"\n        },\n        \"checklist\": {\n          \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"has_nationality_question\": true,\n          \"has_birthdate_question\": true,\n          \"resolution_status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nationality\": \"GBR\",\n          \"birthdate\": \"2015-11-19\",\n          \"questions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"allowed_travel_documents_set\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"is_travel_document_verified\": true,\n        \"is_visa_verified\": true,\n        \"is_rp_verified\": false,\n        \"required_action\": \"ANSWER_QUESTIONS\",\n        \"consented\": true\n      }\n    ]\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"SESSION_FINALISED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"operationError\": {\n      \"type\": \"string\",\n      \"given_name\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"surname\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"full_name\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"number\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"birthdate\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"sex\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"nationality\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c062dde-43d2-437c-bea1-cd1a1f9195e6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "apply-document",
+                    "recognised"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"documents\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"document_type\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"method\": \"SCAN\",\n  \"is_travel_document\": \"<boolean>\",\n  \"additional_pax_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6f1e76c-051a-445b-bb9c-349a70729bf9",
+          "name": "Apply manually provided travel document data",
+          "request": {
+            "name": "Apply manually provided travel document data",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "pax-session",
+                ":paxSessionId",
+                "apply-document",
+                "travel-document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paxSessionId",
+                  "description": "(Required) Pax session id (prefixed with 'pax_')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"travel_document\": {\n    \"document_type\": \"<string>\",\n    \"number\": \"<string>\",\n    \"expiry_date\": \"<date>\",\n    \"country_code\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"nationality\": \"<string>\",\n    \"given_name\": \"<string,null>\",\n    \"surname\": \"<string,null>\",\n    \"sex\": \"<string>\",\n    \"sub_type\": \"<string,null>\"\n  },\n  \"ignore_mistakes\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b5c3a02-a62c-4d87-8de3-6f87053ff995",
+              "name": "Either error (id or rules mismatch), or success (with updated Pax session)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "apply-document",
+                    "travel-document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"travel_document\": {\n    \"document_type\": \"PASSPORT\",\n    \"number\": \"AD33344455\",\n    \"expiry_date\": \"1980-01-01\",\n    \"country_code\": \"GBR\",\n    \"birthdate\": \"1980-01-01\",\n    \"nationality\": \"GBR\",\n    \"given_name\": \"JOHN\",\n    \"surname\": \"SMITH\",\n    \"sex\": \"F\",\n    \"sub_type\": \"DIPLOMATIC\"\n  },\n  \"ignore_mistakes\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"successfully_verified\": false,\n    \"updated_pax_session\": {\n      \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n      \"pax\": {\n        \"first_name\": \"JACK MARVO\",\n        \"last_name\": \"SMITH VESSEN\",\n        \"birthdate\": \"2021-09-20\"\n      },\n      \"checklist\": {\n        \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n        \"status\": \"ACTIVE\",\n        \"has_nationality_question\": true,\n        \"has_birthdate_question\": true,\n        \"resolution_status\": \"ACTION_REQUIRED\",\n        \"nationality\": \"GBR\",\n        \"birthdate\": \"1984-05-07\",\n        \"questions\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"items\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowed_travel_documents_set\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"is_travel_document_verified\": false,\n      \"is_visa_verified\": true,\n      \"is_rp_verified\": true,\n      \"required_action\": \"ANSWER_QUESTIONS\",\n      \"consented\": true\n    }\n  },\n  \"error\": {\n    \"operationError\": {\n      \"type\": \"string\",\n      \"given_name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"surname\": [\n        \"string\",\n        \"string\"\n      ],\n      \"full_name\": [\n        \"string\",\n        \"string\"\n      ],\n      \"number\": [\n        \"string\",\n        \"string\"\n      ],\n      \"birthdate\": [\n        \"1972-11-11\",\n        \"2023-02-10\"\n      ],\n      \"sex\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"nationality\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    \"general_error\": {\n      \"code\": \"NOT_FOUND\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8a6eda7-d82c-47d2-a7e8-bd6699544976",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "apply-document",
+                    "travel-document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"travel_document\": {\n    \"document_type\": \"PASSPORT\",\n    \"number\": \"AD33344455\",\n    \"expiry_date\": \"1980-01-01\",\n    \"country_code\": \"GBR\",\n    \"birthdate\": \"1980-01-01\",\n    \"nationality\": \"GBR\",\n    \"given_name\": \"JOHN\",\n    \"surname\": \"SMITH\",\n    \"sex\": \"F\",\n    \"sub_type\": \"DIPLOMATIC\"\n  },\n  \"ignore_mistakes\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7dae3dd-f015-40ee-9a0d-f192167fceec",
+          "name": "Recognise document (photo, scan or PDF)",
+          "request": {
+            "name": "Recognise document (photo, scan or PDF)",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "pax-session",
+                ":paxSessionId",
+                "recognise-document"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paxSessionId",
+                  "description": "(Required) Pax session id (prefixed with 'pax_')"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Request id to be returned in response header (auto generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "method",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "expected_document_types",
+                  "value": "[\"<string>\",\"<string>\"]",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "page_index_to_process",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "files",
+                  "value": "[\"<binary>\",\"<binary>\"]",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dc082118-1a24-4003-806e-d85749c585a2",
+              "name": "Success (with updated Pax session) or Error (doc processing, id or rules mismatch)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "recognise-document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "method",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "expected_document_types",
+                      "value": "[\"<string>\",\"<string>\"]",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "page_index_to_process",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "files",
+                      "value": "[\"<binary>\",\"<binary>\"]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"documents\": [],\n    \"signature\": \"string\",\n    \"document_type\": \"string\"\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"BOOKING_NOT_PROCESSABLE\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"operationError\": {\n      \"type\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cfa1503-3abb-4772-a303-8cb91e8cf95c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "pax-session",
+                    ":paxSessionId",
+                    "recognise-document"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paxSessionId",
+                      "description": "(Required) Pax session id (prefixed with 'pax_')"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Request id to be returned in response header (auto generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "method",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "expected_document_types",
+                      "value": "[\"<string>\",\"<string>\"]",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "page_index_to_process",
+                      "value": "<integer>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "files",
+                      "value": "[\"<binary>\",\"<binary>\"]",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "323967a8-0a2e-47e3-9a56-36c6833db8b1",
+          "name": "Set consent for MultiPax session",
+          "request": {
+            "name": "Set consent for MultiPax session",
+            "description": {},
+            "url": {
+              "path": [
+                "session",
+                ":sessionId",
+                "set-consent"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sessionId",
+                  "description": "(Required) MultiPax session id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "request id to be returned in response header (generated if not specified)",
+                "key": "X-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Locale to return content with",
+                "key": "Accept-Language",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"consent\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d442e32a-95b3-46e2-ab39-cd809d8c5054",
+              "name": "Updated MultiPax session",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "set-consent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "request id to be returned in response header (generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"consent\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n    \"journey\": {\n      \"departure\": {\n        \"airport\": {\n          \"airport_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"airport_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"departure_datetime\": \"4381-08-04T58:47\",\n        \"country_code\": \"USA\"\n      },\n      \"transit\": [\n        {\n          \"airport\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"departure_datetime\": \"2167-60-77T50:90\",\n          \"arrival_datetime\": \"3850-64-81T03:53\",\n          \"country_code\": \"MEX\"\n        },\n        {\n          \"airport\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"departure_datetime\": \"2219-32-58T07:19\",\n          \"arrival_datetime\": \"2945-79-54T96:26\",\n          \"country_code\": \"MEX\"\n        }\n      ],\n      \"arrival\": {\n        \"airport\": {\n          \"airport_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"airport_code\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"arrival_datetime\": \"9403-40-10T43:67\",\n        \"country_code\": \"COL\"\n      },\n      \"flight_numbers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"paxs\": [\n      {\n        \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n        \"pax\": {\n          \"first_name\": \"JACK MARVO\",\n          \"last_name\": \"SMITH VESSEN\",\n          \"birthdate\": \"1949-10-07\"\n        },\n        \"checklist\": {\n          \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"has_nationality_question\": false,\n          \"has_birthdate_question\": false,\n          \"resolution_status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nationality\": \"GBR\",\n          \"birthdate\": \"2009-08-18\",\n          \"questions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"allowed_travel_documents_set\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"is_travel_document_verified\": false,\n        \"is_visa_verified\": false,\n        \"is_rp_verified\": true,\n        \"required_action\": \"PROVIDE_NATIONALITY_OR_BIRTHDATE\",\n        \"consented\": false\n      },\n      {\n        \"pax_session_id\": \"pax_aae10767-d13b-4e5c-a9fe-0ab8f13b8087\",\n        \"pax\": {\n          \"first_name\": \"JACK MARVO\",\n          \"last_name\": \"SMITH VESSEN\",\n          \"birthdate\": \"1956-12-17\"\n        },\n        \"checklist\": {\n          \"id\": \"667e0198-af81-4276-a931-365e5065e258\",\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"has_nationality_question\": true,\n          \"has_birthdate_question\": false,\n          \"resolution_status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"nationality\": \"GBR\",\n          \"birthdate\": \"2025-11-19\",\n          \"questions\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"items\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"allowed_travel_documents_set\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"is_travel_document_verified\": true,\n        \"is_visa_verified\": false,\n        \"is_rp_verified\": true,\n        \"required_action\": \"PROVIDE_ADDRESS\",\n        \"consented\": true\n      }\n    ]\n  },\n  \"error\": {\n    \"general_error\": {\n      \"code\": \"SESSION_IS_LOCKED\",\n      \"message\": \"string\",\n      \"details\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55425fef-07f8-47b6-be8a-e281d5bec620",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "session",
+                    ":sessionId",
+                    "set-consent"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sessionId",
+                      "description": "(Required) MultiPax session id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "request id to be returned in response header (generated if not specified)",
+                    "key": "X-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Locale to return content with",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"consent\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "35ab0c06-14e0-457c-b5ed-415bb09d7a78",
+    "name": "Zamna Ready To Fly Session API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
