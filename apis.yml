@@ -65,6 +65,8 @@ apis:
   humanURL: https://dev.zamna.com/paxcheck/
   baseURL: https://paxcheck-app-dev.staging.zamna.com
   tags:
+  - Sessions
+  tags_raw:
   - Session
   properties:
   - type: OpenAPI
