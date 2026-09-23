@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Zamna Ready To Fly Session Start With Booking Id And Surname API
+  title: Zamna Ready To Fly Start With Booking Id And Surname API
   version: '2.18'
 tags:
 - name: Start With Booking Id And Surname
@@ -29,25 +29,29 @@ paths:
                 $ref: '#/components/schemas/StartWithBookingIdAndSurnameResponse'
       tags:
       - Start With Booking Id And Surname
+      operationId: postStartWithBookingIdAndSurname
+      x-operation-id-source: derived
 components:
   schemas:
-    GeneralError:
+    StartWithBookingIdAndSurnameResponse:
+      type: object
+      description: Response to login with booking identifier and surname
+      properties:
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/StartWithBookingIdAndSurnameResponseData'
+          - type: 'null'
+        error:
+          anyOf:
+          - $ref: '#/components/schemas/ErrorContainer'
+          - type: 'null'
+    ErrorContainer:
       type: object
       properties:
-        code:
-          $ref: '#/components/schemas/GeneralErrorCode'
-        message:
-          type:
-          - string
-          - 'null'
-        details:
-          additionalProperties:
-            type: string
-          type:
-          - object
-          - 'null'
-      required:
-      - code
+        general_error:
+          anyOf:
+          - $ref: '#/components/schemas/GeneralError'
+          - type: 'null'
     StartWithBookingIdAndSurnameResponseData:
       type: object
       description: Response for /start-with-booking-id-and-surname endpoint
@@ -67,22 +71,6 @@ components:
       required:
       - session_id
       - pax_check_token
-    ErrorContainer:
-      type: object
-      properties:
-        general_error:
-          anyOf:
-          - $ref: '#/components/schemas/GeneralError'
-          - type: 'null'
-    GeneralErrorCode:
-      type: string
-      enum:
-      - NOT_FOUND
-      - BAD_REQUEST
-      - BOOKING_CURRENTLY_NOT_PROCESSABLE
-      - BOOKING_NOT_PROCESSABLE
-      - SESSION_IS_LOCKED
-      - SESSION_FINALISED
     StartWithBookingIdAndSurnameRequest:
       type: object
       description: Request to login with booking identifier and surname, relies on ReCaptcha to prevent robots from using the service
@@ -102,18 +90,32 @@ components:
       - booking_id
       - surname
       - recaptcha_response
-    StartWithBookingIdAndSurnameResponse:
+    GeneralErrorCode:
+      type: string
+      enum:
+      - NOT_FOUND
+      - BAD_REQUEST
+      - BOOKING_CURRENTLY_NOT_PROCESSABLE
+      - BOOKING_NOT_PROCESSABLE
+      - SESSION_IS_LOCKED
+      - SESSION_FINALISED
+    GeneralError:
       type: object
-      description: Response to login with booking identifier and surname
       properties:
-        data:
-          anyOf:
-          - $ref: '#/components/schemas/StartWithBookingIdAndSurnameResponseData'
-          - type: 'null'
-        error:
-          anyOf:
-          - $ref: '#/components/schemas/ErrorContainer'
-          - type: 'null'
+        code:
+          $ref: '#/components/schemas/GeneralErrorCode'
+        message:
+          type:
+          - string
+          - 'null'
+        details:
+          additionalProperties:
+            type: string
+          type:
+          - object
+          - 'null'
+      required:
+      - code
   securitySchemes:
     BearerAuth:
       scheme: bearer

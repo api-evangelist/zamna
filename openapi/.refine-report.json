@@ -1,10 +1,7 @@
 {
   "provider": "zamna",
   "sources": [
-    "zamna-session-api-openapi.yml",
-    "zamna-start-api-openapi.yml",
-    "zamna-start-with-booking-id-and-surname-api-openapi.yml",
-    "zamna-start2-api-openapi.yml"
+    "_original/zamna-paxcheck-openapi-original.json"
   ],
   "outputs": [
     "zamna-session-api-openapi.yml",
@@ -15,6 +12,31 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "zamna-paxcheck-openapi-original.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "zamna-paxcheck-openapi-original.json: tagged paths GET /session/{sessionId} -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths GET /session/{sessionId}/pax-session/{paxSessionId} -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /session/{sessionId}/pax-session/{paxSessionId}/address -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /session/{sessionId}/pax-session/{paxSessionId}/answers -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /session/{sessionId}/pax-session/{paxSessionId}/apply-document/manual -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /session/{sessionId}/pax-session/{paxSessionId}/apply-document/recognised -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /session/{sessionId}/pax-session/{paxSessionId}/apply-document/travel-document -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /session/{sessionId}/pax-session/{paxSessionId}/recognise-document -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /session/{sessionId}/set-consent -> Session",
+    "zamna-paxcheck-openapi-original.json: tagged paths GET /start -> Start",
+    "zamna-paxcheck-openapi-original.json: tagged paths POST /start-with-booking-id-and-surname -> Start With Booking Id And Surname",
+    "zamna-paxcheck-openapi-original.json: tagged paths GET /start2 -> Start2",
+    "zamna-paxcheck-openapi-original.json: declared missing tag: Session",
+    "zamna-paxcheck-openapi-original.json: declared missing tag: Start",
+    "zamna-paxcheck-openapi-original.json: declared missing tag: Start With Booking Id And Surname",
+    "zamna-paxcheck-openapi-original.json: declared missing tag: Start2",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "zamna-session-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zamna-start-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zamna-start-with-booking-id-and-surname-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zamna-start2-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
