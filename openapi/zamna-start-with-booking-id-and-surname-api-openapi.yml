@@ -45,23 +45,6 @@ components:
           anyOf:
           - $ref: '#/components/schemas/ErrorContainer'
           - type: 'null'
-    GeneralError:
-      type: object
-      properties:
-        code:
-          $ref: '#/components/schemas/GeneralErrorCode'
-        message:
-          type:
-          - string
-          - 'null'
-        details:
-          additionalProperties:
-            type: string
-          type:
-          - object
-          - 'null'
-      required:
-      - code
     StartWithBookingIdAndSurnameRequest:
       type: object
       description: Request to login with booking identifier and surname, relies on ReCaptcha to prevent robots from using the service
@@ -81,13 +64,6 @@ components:
       - booking_id
       - surname
       - recaptcha_response
-    ErrorContainer:
-      type: object
-      properties:
-        general_error:
-          anyOf:
-          - $ref: '#/components/schemas/GeneralError'
-          - type: 'null'
     GeneralErrorCode:
       type: string
       enum:
@@ -116,6 +92,30 @@ components:
       required:
       - session_id
       - pax_check_token
+    ErrorContainer:
+      type: object
+      properties:
+        general_error:
+          anyOf:
+          - $ref: '#/components/schemas/GeneralError'
+          - type: 'null'
+    GeneralError:
+      type: object
+      properties:
+        code:
+          $ref: '#/components/schemas/GeneralErrorCode'
+        message:
+          type:
+          - string
+          - 'null'
+        details:
+          additionalProperties:
+            type: string
+          type:
+          - object
+          - 'null'
+      required:
+      - code
   securitySchemes:
     BearerAuth:
       scheme: bearer
