@@ -45,25 +45,13 @@ components:
           anyOf:
           - $ref: '#/components/schemas/ErrorContainer'
           - type: 'null'
-    StartWithBookingIdAndSurnameRequest:
+    ErrorContainer:
       type: object
-      description: Request to login with booking identifier and surname, relies on ReCaptcha to prevent robots from using the service
       properties:
-        booking_id:
-          type: string
-          description: Booking id
-          example: BC45AS
-        surname:
-          type: string
-          description: Passenger surname
-          example: SMITH
-        recaptcha_response:
-          type: string
-          description: ReCaptcha response
-      required:
-      - booking_id
-      - surname
-      - recaptcha_response
+        general_error:
+          anyOf:
+          - $ref: '#/components/schemas/GeneralError'
+          - type: 'null'
     GeneralErrorCode:
       type: string
       enum:
@@ -92,13 +80,25 @@ components:
       required:
       - session_id
       - pax_check_token
-    ErrorContainer:
+    StartWithBookingIdAndSurnameRequest:
       type: object
+      description: Request to login with booking identifier and surname, relies on ReCaptcha to prevent robots from using the service
       properties:
-        general_error:
-          anyOf:
-          - $ref: '#/components/schemas/GeneralError'
-          - type: 'null'
+        booking_id:
+          type: string
+          description: Booking id
+          example: BC45AS
+        surname:
+          type: string
+          description: Passenger surname
+          example: SMITH
+        recaptcha_response:
+          type: string
+          description: ReCaptcha response
+      required:
+      - booking_id
+      - surname
+      - recaptcha_response
     GeneralError:
       type: object
       properties:
