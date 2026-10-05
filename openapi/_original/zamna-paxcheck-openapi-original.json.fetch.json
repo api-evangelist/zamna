@@ -1,0 +1,12 @@
+{
+ "url": "https://paxcheck-app-dev.staging.zamna.com/openapi?v=default",
+ "requested_url": "https://paxcheck-app-dev.staging.zamna.com/openapi?v=default",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 99013,
+ "sha256": "513b315fe37283fc556b0d458be7506cf67e04058980bf020141e6052861c75f",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
